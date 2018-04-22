@@ -9,8 +9,8 @@ library (stellar)
 > stars ("what was that repo I starred again?")
     name            desc
 1.  my/stuff        Repo for doing good stuff
-2.  their/thing     Anohter repo for 
-3.  mpadge/stellar  Search your github stars in R
+2.  their/thing     Another repo for 
+3.  ropenscilabs/stellar  Search your github stars in R
 ...
 ```
 Type the number to open the repo on github. Other people's stars can also be
