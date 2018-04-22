@@ -1,0 +1,9 @@
+^appveyor\.yml$
+^.*\.Rproj$
+^CONDUCT\.md$
+^README\.Rmd$
+^README\.md$
+^README\.html$
+^\.travis\.yml$
+^.*\.Rproj$
+^\.Rproj\.user$
