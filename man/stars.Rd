@@ -4,13 +4,15 @@
 \alias{stars}
 \title{stars}
 \usage{
-stars(text = "", user = NULL)
+stars(text = "", user = NULL, language = NULL)
 }
 \arguments{
 \item{text}{Text string to search for}
 
 \item{user}{Name of github user whose stars you want to search. Defaults to
 your own profile}
+
+\item{language}{Filter results to specified primary repository language}
 }
 \value{
 Interactive screen dump of results enabling you to select the best

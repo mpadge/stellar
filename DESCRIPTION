@@ -8,7 +8,13 @@ Authors@R: c(
     person("Jonathan", "Carroll", role="aut"))
 Description: Command line text search of github stars for yourself or anybody
     else.
-Depends: R (>= 3.3)
+Imports:
+    ghql,
+    httr,
+    jsonlite,
+    magrittr
+Remotes:
+    ropensci/ghql
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
