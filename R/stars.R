@@ -6,19 +6,25 @@
 #' @param user Name of github user whose stars you want to search. Defaults to
 #' your own profile
 #' @param language Filter results to specified primary repository language
+#' @param newest_first Sort by newest stars first
+#'
 #' @return Interactive screen dump of results enabling you to select the best
 #' match and open the corresponding github repository
 #' @export
-stars <- function (text = "", user = NULL, language = NULL)
+stars <- function (text = "", user = NULL, language = NULL, newest_first = TRUE)
 {
-    getstars (text = text, user = user)
+    getstars (text, user, newest_first)
 }
 
-getstars <- function (text = "", user = NULL)
+getstars <- function (text, user, newest_first)
 {
+    ord <- 'orderBy: {field: STARRED_AT, direction: DESC}'
+    if (!newest_first)
+        ord <- 'orderBy: {field: STARRED_AT, direction: ASC}'
+
     query <- paste0 ('{
                      user(login:"', user, '"){
-                         starredRepositories(first: 5)
+                         starredRepositories(first: 10, ', ord, ')
                          {
                              edges{
                                  node {
