@@ -13,6 +13,7 @@ Imports:
     httr,
     jsonlite,
     magrittr,
+    quanteda,
     tibble
 Remotes:
     ropensci/ghql

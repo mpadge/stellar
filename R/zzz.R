@@ -1,6 +1,7 @@
+
 create_client <- function(){
   token <- Sys.getenv("GITHUB_GRAPHQL_TOKEN")
-  if(token == "")
+  if (token == "")
   {
     stop ("Please set your GITHUB_GRAPHQL_TOKEN environment variable.")
   } else
