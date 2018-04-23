@@ -12,7 +12,8 @@ Imports:
     ghql,
     httr,
     jsonlite,
-    magrittr
+    magrittr,
+    tibble
 Remotes:
     ropensci/ghql
 License: MIT + file LICENSE

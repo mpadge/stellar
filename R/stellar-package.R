@@ -6,4 +6,5 @@
 #' @importFrom ghql GraphqlClient
 #' @importFrom httr add_headers
 #' @importFrom jsonlite fromJSON
+#' @importFrom tibble tibble
 NULL

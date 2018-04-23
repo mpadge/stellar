@@ -41,6 +41,11 @@ getstars <- function (text, user, newest_first)
             }')
     qry <- ghql::Query$new()
     qry$query('getstars', query)
-    create_client()$exec(qry$queries$getstars) %>%
+    ret <- create_client()$exec(qry$queries$getstars) %>%
         jsonlite::fromJSON ()
+    # non-dplyr, non-jqr, dependency-free processing:
+    ret <- ret$data$user$starredRepositories$edges$node
+    tibble::tibble (name = ret$name,
+                    description = ret$description,
+                    language = ret$primaryLanguage [, 1])
 }
