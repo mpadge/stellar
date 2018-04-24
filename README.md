@@ -2,25 +2,9 @@
 
 # stellar
 
-(Doesn't yet work like this, but will really, really soon ...) Search your
-github stars in R
-```
-library (stellar)
-> stars ("what was that repo I starred again?")
-    name            desc
-1.  my/stuff        Repo for doing good stuff
-2.  their/thing     Another repo for 
-3.  ropenscilabs/stellar  Search your github stars in R
-...
-```
-Type the number to open the repo on github. Other people's stars can also be
-searched:
-```
-> stars (user = "m")
-... (list of of given user's stars)
-> stars (text = "great repo about great R stuff", user = "m")
-... (list stars by user "m" that best match given text)
-```
+Search your github stars in R
+
+![](https://user-images.githubusercontent.com/6697851/39176684-b219d7b4-47ad-11e8-9aec-b30e284631e5.png)
 
 ### Code of Conduct
 
