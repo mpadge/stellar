@@ -61,7 +61,7 @@ form_qry_next <- function (user, ord, after)
 {
     paste0 ('{
             user(login:"', user, '"){
-                starredRepositories(first: 100, ', ord, ', after: ', after, ')
+                starredRepositories(first: 100, ', ord, ', after: "', after, '")
                 {
                     pageInfo{
                         endCursor
