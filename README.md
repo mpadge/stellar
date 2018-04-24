@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/ropenscilabs/stellar.svg)](https://travis-ci.org/ropenscilabs/stellar) [![Project Status: Concept.](http://www.repostatus.org/badges/latest/concept.svg)](http://www.repostatus.org/#concept)
+[![Build Status](https://travis-ci.org/ropenscilabs/stellar.svg)](https://travis-ci.org/ropenscilabs/stellar) [![Project Status: Concept.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active)
 
 # stellar
 
