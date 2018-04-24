@@ -9,5 +9,5 @@
 #' @importFrom quanteda char_tolower dfm featnames kwic 
 #' @importFrom quanteda stopwords tokens tokens_wordstem
 #' @importFrom tibble tibble
-#' @importFrom utils combn
+#' @importFrom utils combn browseURL
 NULL

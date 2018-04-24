@@ -2,7 +2,7 @@
 #'
 #' Text search github stars
 #'
-#' @param text Text string to search for
+#' @param phrase Text string to search for
 #' @param user Name of github user whose stars you want to search. Defaults to
 #' your own profile
 #' @param language Filter results to specified primary repository language
@@ -11,9 +11,29 @@
 #' @return Interactive screen dump of results enabling you to select the best
 #' match and open the corresponding github repository
 #' @export
-stars <- function (text = "", user = NULL, language = NULL, newest_first = TRUE)
+stars <- function (phrase = "", user = NULL, language = NULL, newest_first = TRUE)
 {
-    getstars (user, language, newest_first)
+    s <- getstars (user, language, newest_first)
+    repos <- star_search (s, phrase)$repo_names
+    if (length (repos) == 0)
+        message ("That text does not appear to describe any starred repositories")
+    else
+    {
+        s <- s [which (s$name %in% repos), ]
+        for (i in seq (nrow (s)))
+            print_repo (s, i)
+        val <- readline (paste0 ("\nchoose a repository to open, ",
+                                 "or anything else to exit: "))
+        val <- suppressWarnings (as.numeric (val))
+        if (is.na (val))
+            val <- -1
+        if (val > 0 & val <= nrow (s))
+        {
+            ghbase <- "https://github.com/"
+            ghurl <- paste0 (ghbase, s$name [val])
+            browseURL (ghurl)
+        }
+    }
 }
 
 getstars <- function (user = NULL, language = NULL, newest_first = TRUE)
@@ -44,7 +64,7 @@ form_qry_start <- function (user, ord)
                     }
                     edges{
                         node {
-                            name
+                            nameWithOwner
                             description
                             primaryLanguage
                             {
@@ -69,7 +89,7 @@ form_qry_next <- function (user, ord, after)
                     }
                     edges{
                         node {
-                            name
+                            nameWithOwner
                             description
                             primaryLanguage
                             {

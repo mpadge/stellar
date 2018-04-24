@@ -30,16 +30,16 @@ star_search <- function (corpus, phrase)
     tokens <- tokens [indx]
 
     pos <- quanteda::kwic (tokens, phrase, join = FALSE)
-    pos <- data.frame (pkgname = pos$docname,
+    pos <- data.frame (reponame = pos$docname,
                        pos = pos$from,
                        kw  = pos$keyword,
                        stringsAsFactors = FALSE)
 
-    pkg_names <- names (tokens)
-    phrase_len <- nkw <- rep (NA, length (pkg_names))
-    for (i in seq (pkg_names))
+    repo_names <- names (tokens)
+    phrase_len <- nkw <- rep (NA, length (repo_names))
+    for (i in seq (repo_names))
     {
-        indx <- which (pos$pkgname == pkg_names [i])
+        indx <- which (pos$reponame == repo_names [i])
         posi <- split (pos$pos [indx], pos$kw [indx])
         nkw [i] <- length (posi)
 
@@ -70,7 +70,7 @@ star_search <- function (corpus, phrase)
 
     data.frame (min_phrase_len = phrase_len [indx],
                 num_key_words = nkw [indx],
-                pkg_names = pkg_names [indx],
+                repo_names = repo_names [indx],
                 stringsAsFactors = FALSE)
 }
 

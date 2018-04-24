@@ -4,10 +4,10 @@
 \alias{stars}
 \title{stars}
 \usage{
-stars(text = "", user = NULL, language = NULL, newest_first = TRUE)
+stars(phrase = "", user = NULL, language = NULL, newest_first = TRUE)
 }
 \arguments{
-\item{text}{Text string to search for}
+\item{phrase}{Text string to search for}
 
 \item{user}{Name of github user whose stars you want to search. Defaults to
 your own profile}
