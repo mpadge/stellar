@@ -4,7 +4,8 @@
 \alias{stars}
 \title{stars}
 \usage{
-stars(phrase = "", user = NULL, language = NULL, newest_first = TRUE)
+stars(phrase = "", user = NULL, language = NULL, newest_first = TRUE,
+  interactive = TRUE)
 }
 \arguments{
 \item{phrase}{Text string to search for}
@@ -15,6 +16,9 @@ your own profile}
 \item{language}{Filter results to specified primary repository language}
 
 \item{newest_first}{Sort by newest stars first}
+
+\item{interactive}{If \code{FALSE}, just print results to screen, invisibly
+issue a return object, and exit.}
 }
 \value{
 Interactive screen dump of results enabling you to select the best

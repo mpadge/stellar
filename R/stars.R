@@ -7,33 +7,41 @@
 #' your own profile
 #' @param language Filter results to specified primary repository language
 #' @param newest_first Sort by newest stars first
+#' @param interactive If \code{FALSE}, just print results to screen, invisibly
+#' issue a return object, and exit.
 #'
 #' @return Interactive screen dump of results enabling you to select the best
 #' match and open the corresponding github repository
 #' @export
-stars <- function (phrase = "", user = NULL, language = NULL, newest_first = TRUE)
+stars <- function (phrase = "", user = NULL, language = NULL, newest_first = TRUE,
+                   interactive = TRUE)
 {
     s <- getstars (user, language, newest_first)
     repos <- star_search (s, phrase)$repo_names
+    ret <- NULL
     if (length (repos) == 0)
         message ("That text does not appear to describe any starred repositories")
     else
     {
-        s <- s [which (s$name %in% repos), ]
-        for (i in seq (nrow (s)))
-            print_repo (s, i)
-        val <- readline (paste0 ("\nchoose a repository to open, ",
-                                 "or anything else to exit: "))
-        val <- suppressWarnings (as.numeric (val))
-        if (is.na (val))
-            val <- -1
-        if (val > 0 & val <= nrow (s))
+        ret <- s [which (s$name %in% repos), ]
+        for (i in seq (nrow (ret)))
+            print_repo (ret, i)
+        if (interactive)
         {
-            ghbase <- "https://github.com/"
-            ghurl <- paste0 (ghbase, s$name [val])
-            browseURL (ghurl)
+            val <- readline (paste0 ("\nchoose a repository to open, ",
+                                     "or anything else to exit: "))
+            val <- suppressWarnings (as.numeric (val))
+            if (is.na (val))
+                val <- -1
+            if (val > 0 & val <= nrow (ret))
+            {
+                ghbase <- "https://github.com/"
+                ghurl <- paste0 (ghbase, s$name [val])
+                browseURL (ghurl)
+            }
         }
     }
+    invisible (ret)
 }
 
 getstars <- function (user = NULL, language = NULL, newest_first = TRUE)
