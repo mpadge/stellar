@@ -2,7 +2,9 @@ Package: stellar
 Title: Search github stars
 Version: 0.0.0.9000
 Authors@R: c(
-    person("Mark", "Padgham", email="mark.padgham@email.com", role=c("aut", "cre")),
+    person("Mark", "Padgham", role = c("aut", "cre"),
+        email = "mark.padgham@email.com",
+        comment = c(ORCID = "0000-0003-2172-5265")),
     person("Maëlle", "Salmon", role="aut"),
     person("Bob", "Rudis", role="aut"),
     person("Jonathan", "Carroll", role="aut"))
