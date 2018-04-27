@@ -35,43 +35,50 @@ star_search <- function (corpus, phrase)
                        kw  = pos$keyword,
                        stringsAsFactors = FALSE)
 
-    repo_names <- names (tokens)
-    phrase_len <- nkw <- rep (NA, length (repo_names))
-    for (i in seq (repo_names))
+    ret <- NULL
+    if (nrow (pos) > 0)
     {
-        indx <- which (pos$reponame == repo_names [i])
-        posi <- split (pos$pos [indx], pos$kw [indx])
-        nkw [i] <- length (posi)
+        repo_names <- names (tokens)
+        phrase_len <- nkw <- rep (NA, length (repo_names))
+        for (i in seq (repo_names))
+        {
+            indx <- which (pos$reponame == repo_names [i])
+            posi <- split (pos$pos [indx], pos$kw [indx])
+            nkw [i] <- length (posi)
 
-        if (length (posi) == 1)
-        {
-            # For single-token phrases, use first position as substitute for
-            # minimal phrase length, so earlier positions are preferred. Keyword
-            # can still occur multiple times, so min is necessary
-            phrase_len [i] <- min (posi [[1]])
-        } else
-        {
-            combs <- combn (length (posi), 2)
-            dmin <- rep (NA, ncol (combs))
-            for (j in seq (ncol (combs)))
+            if (length (posi) == 1)
             {
-                pj1 <- posi [[combs [1, j] ]]
-                pj2 <- posi [[combs [2, j] ]]
-                dj1 <- matrix (pj1, nrow = length (pj1), ncol = length (pj2))
-                dj2 <- t (matrix (pj2, nrow = length (pj2),
-                                  ncol = length (pj1)))
-                dmin [j] <- min (abs (dj1 - dj2))
+                # For single-token phrases, use first position as substitute for
+                # minimal phrase length, so earlier positions are preferred.
+                # Keyword can still occur multiple times, so min is necessary
+                phrase_len [i] <- min (posi [[1]])
+            } else
+            {
+                combs <- combn (length (posi), 2)
+                dmin <- rep (NA, ncol (combs))
+                for (j in seq (ncol (combs)))
+                {
+                    pj1 <- posi [[combs [1, j] ]]
+                    pj2 <- posi [[combs [2, j] ]]
+                    dj1 <- matrix (pj1, nrow = length (pj1),
+                                   ncol = length (pj2))
+                    dj2 <- t (matrix (pj2, nrow = length (pj2),
+                                      ncol = length (pj1)))
+                    dmin [j] <- min (abs (dj1 - dj2))
+                }
+                phrase_len [i] <- max (dmin) + 1
             }
-            phrase_len [i] <- max (dmin) + 1
         }
+
+        indx <- order (-nkw, phrase_len) # highest #keywords; lowest s
+
+        ret <- data.frame (min_phrase_len = phrase_len [indx],
+                           num_key_words = nkw [indx],
+                           repo_names = repo_names [indx],
+                           stringsAsFactors = FALSE)
     }
 
-    indx <- order (-nkw, phrase_len) # highest #keywords; lowest s
-
-    data.frame (min_phrase_len = phrase_len [indx],
-                num_key_words = nkw [indx],
-                repo_names = repo_names [indx],
-                stringsAsFactors = FALSE)
+    return (ret)
 }
 
 #' tokenize_phrase
@@ -106,4 +113,3 @@ phrase_in_dfm <- function (dfm, aphrase)
     indx <- apply (dfm [, aphrase], 1, function (i) sum (i > 0))
     which (indx > 1 | indx >= length (aphrase))
 }
-

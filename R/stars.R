@@ -6,6 +6,7 @@
 #' @param user Name of github user whose stars you want to search. Defaults to
 #' your own profile
 #' @param language Filter results to specified primary repository language
+#' @param ghname Filter results to repos belonging to a specified github name
 #' @param newest_first Sort by newest stars first
 #' @param interactive If \code{FALSE}, just print results to screen, invisibly
 #' issue a return object, and exit.
@@ -13,10 +14,10 @@
 #' @return Interactive screen dump of results enabling you to select the best
 #' match and open the corresponding github repository
 #' @export
-stars <- function (phrase = "", user = NULL, language = NULL, newest_first = TRUE,
-                   interactive = TRUE)
+stars <- function (phrase = "", user = NULL, language = NULL, ghname = NULL,
+                   newest_first = TRUE, interactive = TRUE)
 {
-    s <- getstars (user, language, newest_first)
+    s <- getstars (user, language, ghname, newest_first)
     repos <- star_search (s, phrase)$repo_names
     ret <- NULL
     if (length (repos) == 0)
@@ -44,7 +45,8 @@ stars <- function (phrase = "", user = NULL, language = NULL, newest_first = TRU
     invisible (ret)
 }
 
-getstars <- function (user = NULL, language = NULL, newest_first = TRUE)
+getstars <- function (user = NULL, language = NULL, ghname = NULL,
+                      newest_first = TRUE)
 {
     dat <- getstars_qry (user, newest_first, after = NULL)
     star_dat <- dat$dat
@@ -55,7 +57,14 @@ getstars <- function (user = NULL, language = NULL, newest_first = TRUE)
     }
 
     if (!is.null (language))
-        star_dat <- star_dat [star_dat$language %in% language]
+        star_dat <- star_dat [star_dat$language %in% language, ]
+    if (!is.null (ghname))
+    {
+        ghnames <- lapply (strsplit (star_dat$name, "/"),
+                           function (i) i [[1]]) %>%
+                unlist ()
+        star_dat <- star_dat [ghnames %in% ghname, ]
+    }
 
     return (star_dat)
 }
