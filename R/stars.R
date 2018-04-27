@@ -37,7 +37,7 @@ stars <- function (phrase = "", user = NULL, language = NULL, ghname = NULL,
             if (val > 0 & val <= nrow (ret))
             {
                 ghbase <- "https://github.com/"
-                ghurl <- paste0 (ghbase, s$name [val])
+                ghurl <- paste0 (ghbase, ret$name [val])
                 browseURL (ghurl)
             }
         }
