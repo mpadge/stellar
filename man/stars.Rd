@@ -4,8 +4,8 @@
 \alias{stars}
 \title{stars}
 \usage{
-stars(phrase = "", user = NULL, language = NULL, newest_first = TRUE,
-  interactive = TRUE)
+stars(phrase = "", user = NULL, language = NULL, ghname = NULL,
+  newest_first = TRUE, interactive = TRUE)
 }
 \arguments{
 \item{phrase}{Text string to search for}
@@ -14,6 +14,8 @@ stars(phrase = "", user = NULL, language = NULL, newest_first = TRUE,
 your own profile}
 
 \item{language}{Filter results to specified primary repository language}
+
+\item{ghname}{Filter results to repos belonging to a specified github name}
 
 \item{newest_first}{Sort by newest stars first}
 
