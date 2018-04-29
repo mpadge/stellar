@@ -5,5 +5,5 @@
 ^README\.md$
 ^README\.html$
 ^\.travis\.yml$
-^.*\.Rproj$
 ^\.Rproj\.user$
+^codecov\.yml$

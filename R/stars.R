@@ -2,9 +2,10 @@
 #'
 #' Text search GitHub stars
 #'
+#' @md
 #' @param phrase Text string to search for. Defaults to returning all starred repositories from the specified user
-#' @param user Name of GitHub user whose stars you want to search. Defaults to
-#' your own profile
+#' @param user Name of github user whose stars you want to search. Defaults to
+#' your own profile (detected via [whoami])
 #' @param language Filter results to specified primary repository language
 #' @param ghname Filter results to repos belonging to a specified GitHub name
 #' @param newest_first Sort by newest stars first
@@ -14,7 +15,7 @@
 #' @return Interactive screen dump of results enabling you to select the best
 #' match and open the corresponding GitHub repository
 #' @export
-stars <- function (phrase = NULL, user = NULL, language = NULL, ghname = NULL,
+stars <- function (phrase = "", user = whoami::gh_username(), language = NULL, ghname = NULL,
                    newest_first = TRUE, interactive = TRUE)
 {
     s <- getstars (user, language, ghname, newest_first)
@@ -146,6 +147,7 @@ getstars_qry <- function (user, newest_first, after = NULL)
     qry$query('getstars', query)
     dat <- create_client()$exec(qry$queries$getstars) %>%
         jsonlite::fromJSON ()
+    if (is.null(dat$data$user)) stop(dat$errors$message)
 
     has_next_page <- dat$data$user$starredRepositories$pageInfo$hasNextPage
     endCursor <- dat$data$user$starredRepositories$pageInfo$endCursor
