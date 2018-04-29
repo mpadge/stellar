@@ -19,7 +19,8 @@ Imports:
     jsonlite,
     magrittr,
     quanteda,
-    tibble
+    tibble,
+    whoami
 Remotes:
     ropensci/ghql
 License: MIT + file LICENSE
@@ -29,3 +30,4 @@ RoxygenNote: 6.0.1.9000
 Suggests: 
     testthat,
     covr
+

@@ -4,14 +4,14 @@
 \alias{stars}
 \title{stars}
 \usage{
-stars(phrase = "", user = NULL, language = NULL, ghname = NULL,
-  newest_first = TRUE, interactive = TRUE)
+stars(phrase = "", user = whoami::gh_username(), language = NULL,
+  ghname = NULL, newest_first = TRUE, interactive = TRUE)
 }
 \arguments{
 \item{phrase}{Text string to search for}
 
 \item{user}{Name of github user whose stars you want to search. Defaults to
-your own profile}
+your own profile (detected via \link{whoami})}
 
 \item{language}{Filter results to specified primary repository language}
 
