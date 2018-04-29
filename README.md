@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/ropenscilabs/stellar.svg)](https://travis-ci.org/ropenscilabs/stellar) [![Project Status: Concept.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active)
+[![Build Status](https://travis-ci.org/ropenscilabs/stellar.svg)](https://travis-ci.org/ropenscilabs/stellar) [![Project Status: Concept.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active) [![Coverage status](https://codecov.io/gh/ropenscilabs/stellar/branch/master/graph/badge.svg)](https://codecov.io/github/ropenscilabs/stellar?branch=master)
 
 # stellar
 
