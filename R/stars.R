@@ -2,6 +2,7 @@
 #'
 #' Text search GitHub stars
 #'
+#' @md
 #' @param phrase Text string to search for
 #' @param user Name of GitHub user whose stars you want to search. Defaults to
 #' your own profile (detected via [whoami])
