@@ -1,10 +1,26 @@
-[![Build Status](https://travis-ci.org/ropenscilabs/stellar.svg)](https://travis-ci.org/ropenscilabs/stellar) [![Project Status: Concept.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active)
+[![Build Status](https://travis-ci.org/ropenscilabs/stellar.svg)](https://travis-ci.org/ropenscilabs/stellar) [![Project Status: Concept.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active) [![Coverage status](https://codecov.io/gh/ropenscilabs/stellar/branch/master/graph/badge.svg)](https://codecov.io/github/ropenscilabs/stellar?branch=master)
 
 # stellar
 
 Search your github stars in R
 
 ![](https://user-images.githubusercontent.com/6697851/39176684-b219d7b4-47ad-11e8-9aec-b30e284631e5.png)
+
+## Installation
+
+`stellar` can be installed directly from GitHub via any of the following methods
+
+```r
+# install.packages("devtools")
+devtools::install_packages("ropenscilabs/stellar")
+```
+
+or
+
+```r
+# install.packages("remotes")
+remotes::install_packages("ropenscilabs/stellar")
+```
 
 ## How?
 
