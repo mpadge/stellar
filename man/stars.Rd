@@ -8,7 +8,7 @@ stars(phrase = NULL, user = NULL, language = NULL, ghname = NULL,
   newest_first = TRUE, interactive = TRUE)
 }
 \arguments{
-\item{phrase}{Text string to search for. Defaults to returning all stars from a user.}
+\item{phrase}{Text string to search for. Defaults to returning all starred repositories from the specified user}
 
 \item{user}{Name of GitHub user whose stars you want to search. Defaults to
 your own profile}

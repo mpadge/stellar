@@ -2,7 +2,7 @@
 #'
 #' Text search GitHub stars
 #'
-#' @param phrase Text string to search for. Defaults to returning all stars from a user.
+#' @param phrase Text string to search for. Defaults to returning all starred repositories from the specified user
 #' @param user Name of GitHub user whose stars you want to search. Defaults to
 #' your own profile
 #' @param language Filter results to specified primary repository language
