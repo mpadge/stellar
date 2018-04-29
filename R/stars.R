@@ -1,18 +1,18 @@
 #' stars
 #'
-#' Text search github stars
+#' Text search GitHub stars
 #'
 #' @param phrase Text string to search for
-#' @param user Name of github user whose stars you want to search. Defaults to
+#' @param user Name of GitHub user whose stars you want to search. Defaults to
 #' your own profile
 #' @param language Filter results to specified primary repository language
-#' @param ghname Filter results to repos belonging to a specified github name
+#' @param ghname Filter results to repos belonging to a specified GitHub name
 #' @param newest_first Sort by newest stars first
 #' @param interactive If \code{FALSE}, just print results to screen, invisibly
 #' issue a return object, and exit.
 #'
 #' @return Interactive screen dump of results enabling you to select the best
-#' match and open the corresponding github repository
+#' match and open the corresponding GitHub repository
 #' @export
 stars <- function (phrase = "", user = NULL, language = NULL, ghname = NULL,
                    newest_first = TRUE, interactive = TRUE)

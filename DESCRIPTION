@@ -1,5 +1,5 @@
 Package: stellar
-Title: Search github stars
+Title: Search GitHub stars
 Version: 0.0.0.9000
 Authors@R: c(
     person("Mark", "Padgham", role = c("aut", "cre"),
