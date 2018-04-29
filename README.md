@@ -6,6 +6,22 @@ Search your github stars in R
 
 ![](https://user-images.githubusercontent.com/6697851/39176684-b219d7b4-47ad-11e8-9aec-b30e284631e5.png)
 
+## Installation
+
+`stellar` can be installed directly from GitHub via any of the following methods
+
+```r
+# install.packages("devtools")
+devtools::install_packages("ropenscilabs/stellar")
+```
+
+or
+
+```r
+# install.packages("remotes")
+remotes::install_packages("ropenscilabs/stellar")
+```
+
 ## How?
 
 The only thing you need is a Personal Access Token from github. If you don't
