@@ -8,7 +8,7 @@ stars(phrase = "", user = whoami::gh_username(), language = NULL,
   ghname = NULL, newest_first = TRUE, interactive = TRUE)
 }
 \arguments{
-\item{phrase}{Text string to search for}
+\item{phrase}{Text string to search for. Defaults to returning all starred repositories from the specified user}
 
 \item{user}{Name of github user whose stars you want to search. Defaults to
 your own profile (detected via \link{whoami})}
