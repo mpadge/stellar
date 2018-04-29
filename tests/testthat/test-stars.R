@@ -69,7 +69,7 @@ test_that("stars can be retrieved", {
 context("user-facing")
 
 test_that("exported function behaves as expected", {
-  expect_error(stars(), regexp = "Could not resolve to a User") ## change with PR#16
+  expect_message(stars(), "That text does not") ## change with PR#17
   expect_message(stars(user = "mpadge", phrase = ""), "That text does not") ## change with PR#17
   expect_message(stars(user = "mpadge", phrase = "abcdefghijklkmnop"), "That text does not")
   mpadge_ggplot2 <- stars(user = "mpadge", phrase = "ggplot2", interactive = FALSE)

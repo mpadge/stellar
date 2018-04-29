@@ -15,7 +15,7 @@ your own profile (detected via \link{whoami})}
 
 \item{language}{Filter results to specified primary repository language}
 
-\item{ghname}{Filter results to repos belonging to a specified github name}
+\item{ghname}{Filter results to repos belonging to a specified GitHub name}
 
 \item{newest_first}{Sort by newest stars first}
 
@@ -24,8 +24,8 @@ issue a return object, and exit.}
 }
 \value{
 Interactive screen dump of results enabling you to select the best
-match and open the corresponding github repository
+match and open the corresponding GitHub repository
 }
 \description{
-Text search github stars
+Text search GitHub stars
 }
