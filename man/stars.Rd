@@ -4,18 +4,18 @@
 \alias{stars}
 \title{stars}
 \usage{
-stars(phrase = "", user = NULL, language = NULL, ghname = NULL,
+stars(phrase = "code", user = NULL, language = NULL, ghname = NULL,
   newest_first = TRUE, interactive = TRUE)
 }
 \arguments{
-\item{phrase}{Text string to search for}
+\item{phrase}{Text string to search for. Defaults to "code"}
 
-\item{user}{Name of github user whose stars you want to search. Defaults to
+\item{user}{Name of GitHub user whose stars you want to search. Defaults to
 your own profile}
 
 \item{language}{Filter results to specified primary repository language}
 
-\item{ghname}{Filter results to repos belonging to a specified github name}
+\item{ghname}{Filter results to repos belonging to a specified GitHub name}
 
 \item{newest_first}{Sort by newest stars first}
 
@@ -24,8 +24,8 @@ issue a return object, and exit.}
 }
 \value{
 Interactive screen dump of results enabling you to select the best
-match and open the corresponding github repository
+match and open the corresponding GitHub repository
 }
 \description{
-Text search github stars
+Text search GitHub stars
 }
