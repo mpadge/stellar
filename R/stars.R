@@ -2,7 +2,7 @@
 #'
 #' Text search GitHub stars
 #'
-#' @param phrase Text string to search for. Defaults to "code"
+#' @param phrase Text string to search for. Defaults to returning all stars from a user.
 #' @param user Name of GitHub user whose stars you want to search. Defaults to
 #' your own profile
 #' @param language Filter results to specified primary repository language
@@ -14,10 +14,16 @@
 #' @return Interactive screen dump of results enabling you to select the best
 #' match and open the corresponding GitHub repository
 #' @export
-stars <- function (phrase = "code", user = NULL, language = NULL, ghname = NULL,
+stars <- function (phrase = NULL, user = NULL, language = NULL, ghname = NULL,
                    newest_first = TRUE, interactive = TRUE)
 {
     s <- getstars (user, language, ghname, newest_first)
+    ## return all
+    if (is.null(phrase)) {
+      for (i in seq (nrow (s)))
+        print_repo (s, i)
+      return(invisible(s))
+    }
     repos <- star_search (s, phrase)$repo_names
     ret <- NULL
     if (length (repos) == 0)
