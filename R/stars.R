@@ -140,6 +140,7 @@ getstars_qry <- function (user, newest_first, after = NULL)
     qry$query('getstars', query)
     dat <- create_client()$exec(qry$queries$getstars) %>%
         jsonlite::fromJSON ()
+    if (is.null(dat$data$user)) stop(dat$errors$message)
 
     has_next_page <- dat$data$user$starredRepositories$pageInfo$hasNextPage
     endCursor <- dat$data$user$starredRepositories$pageInfo$endCursor
