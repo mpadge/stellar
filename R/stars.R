@@ -2,9 +2,10 @@
 #'
 #' Text search github stars
 #'
+#' @md
 #' @param phrase Text string to search for
 #' @param user Name of github user whose stars you want to search. Defaults to
-#' your own profile
+#' your own profile (detected via [whoami])
 #' @param language Filter results to specified primary repository language
 #' @param ghname Filter results to repos belonging to a specified github name
 #' @param newest_first Sort by newest stars first
@@ -14,7 +15,7 @@
 #' @return Interactive screen dump of results enabling you to select the best
 #' match and open the corresponding github repository
 #' @export
-stars <- function (phrase = "", user = NULL, language = NULL, ghname = NULL,
+stars <- function (phrase = "", user = whoami::gh_username(), language = NULL, ghname = NULL,
                    newest_first = TRUE, interactive = TRUE)
 {
     s <- getstars (user, language, ghname, newest_first)
