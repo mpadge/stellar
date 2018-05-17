@@ -69,11 +69,10 @@ test_that("stars can be retrieved", {
 context("user-facing")
 
 test_that("exported function behaves as expected", {
-  expect_message(stars(user = "mpadge", phrase = ""), "That text does not") ## change with PR#17
   expect_message(stars(user = "mpadge", phrase = "abcdefghijklkmnop"), "That text does not")
   mpadge_ggplot2 <- stars(user = "mpadge", phrase = "ggplot2", interactive = FALSE)
   expect_is(mpadge_ggplot2, "data.frame")
-  ## NOT TESTED: INTERACTIVE MODE
   skip_on_travis() ## whoami::gh_username() has nothing to find
-  expect_message(stars(), "That text does not") ## change with PR#17
+  default_stars <- stars()
+  expect_is(default_stars, "data.frame")
 })
