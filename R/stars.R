@@ -15,7 +15,7 @@
 #' @return Interactive screen dump of results enabling you to select the best
 #' match and open the corresponding GitHub repository
 #' @export
-stars <- function (phrase = "", user = whoami::gh_username(), language = NULL, ghname = NULL,
+stars <- function (phrase = NULL, user = whoami::gh_username(), language = NULL, ghname = NULL,
                    newest_first = TRUE, interactive = TRUE)
 {
     s <- getstars (user, language, ghname, newest_first)

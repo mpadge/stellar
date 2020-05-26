@@ -4,7 +4,7 @@
 \alias{stars}
 \title{stars}
 \usage{
-stars(phrase = "", user = whoami::gh_username(), language = NULL,
+stars(phrase = NULL, user = whoami::gh_username(), language = NULL,
   ghname = NULL, newest_first = TRUE, interactive = TRUE)
 }
 \arguments{
